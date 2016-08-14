@@ -18,16 +18,22 @@ public class AtomicImpl {
 
 		} while (!flag); // if(result==result) result = 3;
 
+		// or
 		result = counter.getAndAdd(1); // result = i; i += 1;
 
+		// or
 		result = counter.addAndGet(1); // i += 3; result = i;
 
+		// or
 		counter.getAndDecrement(); // result = i--;
 
+		// or
 		counter.getAndIncrement(); // result = i++;
 
+		// or
 		counter.decrementAndGet(); // result = --i;
 
+		// or
 		counter.incrementAndGet(); // result = ++i;
 
 		return result;
