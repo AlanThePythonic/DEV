@@ -34,15 +34,6 @@ public class ThreadLocalImpl implements Runnable {
 
 		System.out.println("thread " + currentThreadName + " first read age is:" + people.getAge());
 
-		try {
-
-			Thread.sleep(500);
-
-		} catch (InterruptedException ex) {
-			ex.printStackTrace();
-		}
-
-		System.out.println("thread " + currentThreadName + " second read age is:" + people.getAge());
 	}
 
 	protected People getPeople() {
