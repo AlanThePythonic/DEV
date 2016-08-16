@@ -13,7 +13,7 @@ interface BufferedReaderProcessor<T> {
 	String process(BufferedReader b) throws IOException;
 }
 
-public class testJava8 {
+public class FunctionalInterfaceImpl {
 
 	public static String processFile(BufferedReaderProcessor<BufferedReader> p, String type)
 			throws FileNotFoundException, IOException {
