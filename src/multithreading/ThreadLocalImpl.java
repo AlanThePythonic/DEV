@@ -3,9 +3,11 @@ package multithreading;
 import java.util.Random;
 
 public class ThreadLocalImpl implements Runnable {
+
 	private final static ThreadLocal<People> threadLocal = new ThreadLocal<People>();
 
 	public static void main(String[] agrs) {
+
 		ThreadLocalImpl td = new ThreadLocalImpl();
 		Thread t1 = new Thread(td);
 		Thread t2 = new Thread(td);
@@ -23,16 +25,23 @@ public class ThreadLocalImpl implements Runnable {
 		System.out.println(currentThreadName + " is running!");
 
 		Random random = new Random();
+
 		int age = random.nextInt(100);
 		System.out.println("thread " + currentThreadName + " set age to:" + age);
+
 		People people = getPeople();
 		people.setAge(age);
+
 		System.out.println("thread " + currentThreadName + " first read age is:" + people.getAge());
+
 		try {
+
 			Thread.sleep(500);
+
 		} catch (InterruptedException ex) {
 			ex.printStackTrace();
 		}
+
 		System.out.println("thread " + currentThreadName + " second read age is:" + people.getAge());
 	}
 
