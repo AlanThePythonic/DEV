@@ -47,7 +47,9 @@ public class ThreadGroupImpl {
 		System.out.println(tg.activeCount() + " threads in thread group.");
 
 		Thread thrds[] = new Thread[tg.activeCount()];
+		
 		tg.enumerate(thrds);
+		
 		for (Thread t : thrds)
 			System.out.println(t.getName());
 
