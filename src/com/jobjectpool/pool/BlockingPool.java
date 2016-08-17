@@ -2,15 +2,6 @@ package com.jobjectpool.pool;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Represents a pool of objects that makes the requesting threads wait if no
- * object is available.
- * 
- * @author Swaranga
- *
- * @param <T>
- *            the type of objects to pool.
- */
 public interface BlockingPool<T> extends Pool<T> {
 	/**
 	 * Returns an instance of type T from the pool.

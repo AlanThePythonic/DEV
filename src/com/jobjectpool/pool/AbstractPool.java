@@ -1,14 +1,5 @@
 package com.jobjectpool.pool;
 
-/**
- * Represents an abstract pool, that defines the procedure of returning an
- * object to the pool.
- * 
- * @author Swaranga
- *
- * @param <T>
- *            the type of pooled objects.
- */
 abstract class AbstractPool<T> implements Pool<T> {
 	/**
 	 * Returns the object to the pool. The method first validates the object if
