@@ -34,8 +34,8 @@ class A extends Thread {
 			str = ex.exchange("A");
 			System.out.println(Thread.currentThread().getName() + " : " + str);
 
-			str = ex.exchange("B");
-			System.out.println(Thread.currentThread().getName() + " : " + str);
+			/*str = ex.exchange("B");
+			System.out.println(Thread.currentThread().getName() + " : " + str);*/
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -59,8 +59,8 @@ class B extends Thread {
 			str = ex.exchange("Hi!");
 			System.out.println(Thread.currentThread().getName() + " : " + str);
 
-			str = ex.exchange("1");
-			System.out.println(Thread.currentThread().getName() + " : " + str);
+			/*str = ex.exchange("1");
+			System.out.println(Thread.currentThread().getName() + " : " + str);*/
 
 			str = ex.exchange("2");
 			System.out.println(Thread.currentThread().getName() + " : " + str);
