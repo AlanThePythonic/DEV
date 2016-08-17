@@ -79,6 +79,8 @@ public final class BoundedBlockingPool<T> extends AbstractBlockingPool<T> {
 	@Override
 	protected void returnToPool(T t) {
 		if (validator.isValid(t)) {
+			
+			// ThreadPoolExecutor should run the Runnable and Callable Classes
 			executor.submit(new ObjectReturner(objects, t));
 		}
 	}
