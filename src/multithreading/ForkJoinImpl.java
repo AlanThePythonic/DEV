@@ -55,9 +55,7 @@ class Task extends RecursiveTask<Integer> {
 		Integer sum = 0;
 		for (int i = start; i <= end; i++) {
 			sum += this.numberList.get(i);
-			
 		}
-		System.out.println(Thread.currentThread().getName() + " : " + sum);
 		return sum;
 	}
 }
