@@ -6,6 +6,15 @@ import java.util.ArrayList;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 
+/*
+ * This framework is designed to solve problems that can be broken into smaller tasks using  
+ * the divide and conquer technique. Inside a task, 
+ * you check the size of the problem you want to resolve and, if it's bigger than an established size, 
+ * you divide it in smaller tasks that are executed using the framework. 
+ * If the size of the problem is smaller than the established size,
+ * you solve the problem directly in the task and then, optionally, it returns a result.
+ */
+
 class Task extends RecursiveTask<Integer> {
 
 	private static final long serialVersionUID = 1L;
