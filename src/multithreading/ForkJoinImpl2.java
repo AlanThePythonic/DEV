@@ -12,7 +12,7 @@ import java.util.concurrent.RecursiveTask;
  * It can get a ForkJoinTask，and return the result。
  * There are two subclasses of ForkJoinTask: 
  * RecursiveTask（Returned）
- * 和RecursiveAction（Non-Returned）， 
+ * and RecursiveAction（Non-Returned）， 
  * 
  * */
 
