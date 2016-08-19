@@ -6,11 +6,14 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
-/*Fork/Join框架的核心类是ForkJoinPool，
- * 它能够接收一个ForkJoinTask，并得到计算结果。
- * ForkJoinTask有两个子类，RecursiveTask（有返回值）
- * 和RecursiveAction（无返回结果），
- * 我们自己定义任务时，只需选择这两个类继承即可。类图如下： 
+/*
+ * 
+ * Fork Join Framework core is ForkJoinPool，
+ * It can get a ForkJoinTask，and return the result。
+ * There are two subclasses of ForkJoinTask: 
+ * RecursiveTask（Returned）
+ * 和RecursiveAction（Non-Returned）， 
+ * 
  * */
 
 public class ForkJoinImpl2 extends RecursiveTask<Integer> {
