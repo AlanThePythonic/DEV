@@ -42,6 +42,7 @@ public class ForkJoinImpl2 extends RecursiveTask<Integer> {
 				sum += array[i];
 			}
 		} else {
+
 			// 1. Big task is separated by 2 tasks
 			int mid = (low + high) >>> 1;
 			ForkJoinImpl2 left = new ForkJoinImpl2(array, low, mid);
@@ -68,13 +69,11 @@ public class ForkJoinImpl2 extends RecursiveTask<Integer> {
 		long begin = System.currentTimeMillis();
 
 		ForkJoinPool forkJoinPool = new ForkJoinPool();
-
 		forkJoinPool.submit(sumTask);
 
 		Integer result = sumTask.get();
 
 		long end = System.currentTimeMillis();
-
 		System.out.println(String.format("Result : %s,  Used Time : %sms", result, end - begin));
 	}
 
