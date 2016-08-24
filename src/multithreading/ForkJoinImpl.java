@@ -22,7 +22,7 @@ class Task extends RecursiveTask<Integer> {
 	private List<Integer> numberList;
 	private int start;
 	private int end;
-	private int THRESHOLD = 10;
+	private int THRESHOLD = 2;
 
 	public Task(List<Integer> numberList) {
 		this.numberList = numberList;
@@ -38,14 +38,21 @@ class Task extends RecursiveTask<Integer> {
 
 	@Override
 	protected Integer compute() {
+		// Calculate directly if lower than THRESHOLD
 		if (end - start <= THRESHOLD) {
 			return sum();
 		} else {
+			// 1. Big task is separated by 2 tasks
 			int pivot = (end + start) / 2;
 			Task task1 = new Task(numberList, start, pivot);
 			Task task2 = new Task(numberList, pivot + 1, end);
+			
+			// 2. Calculate individually
 			task1.fork();
 			task2.fork();
+			
+			// 3. Join the result from all tasks
+			System.out.println(task1.join() + " : " + task2.join());
 			return task1.join() + task2.join();
 		}
 
@@ -55,7 +62,7 @@ class Task extends RecursiveTask<Integer> {
 		Integer sum = 0;
 		for (int i = start; i <= end; i++) {
 			sum += this.numberList.get(i);
-			
+
 		}
 		System.out.println(Thread.currentThread().getName() + " : " + sum);
 		return sum;
@@ -68,7 +75,7 @@ public class ForkJoinImpl {
 
 		ForkJoinPool pool = new ForkJoinPool();
 
-		Task task = new Task(getData(100));
+		Task task = new Task(getData(10));
 		Future<Integer> result = pool.submit(task);
 		System.out.println(result.get());
 	}
