@@ -22,8 +22,8 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1471405950785</id>
-			<name>src/Official Spark Reference Code</name>
+			<id>0</id>
+			<name>src/Spark Development/Official Spark Reference Code</name>
 			<type>30</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
