@@ -12,7 +12,7 @@ public class SemaphoreImpl {
 
 		final Semaphore semph = new Semaphore(3);
 
-		for (int index = 1; index < 10; index++) {
+		for (int index = 1; index <= 10; index++) {
 
 			final int NO = index;
 			Runnable ru = () -> {
