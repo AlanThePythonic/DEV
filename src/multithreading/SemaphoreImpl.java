@@ -15,6 +15,7 @@ public class SemaphoreImpl {
 		for (int index = 1; index <= 10; index++) {
 
 			final int NO = index;
+			
 			Runnable ru = () -> {
 
 				try {
