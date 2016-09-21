@@ -21,6 +21,7 @@ public class AtomicReferenceExample {
 		aRperson = new AtomicReference<Person>(person);
 
 		System.out.println("Message is: " + message + "\nPerson is " + person.toString());
+
 		System.out.println("Atomic Reference of Message is: " + aRmessage.get() + "\nAtomic Reference of Person is "
 				+ aRperson.get().toString());
 
@@ -30,6 +31,7 @@ public class AtomicReferenceExample {
 		t2.join();
 
 		System.out.println("\nNow Message is: " + message + "\nPerson is " + person.toString());
+
 		System.out.println("Atomic Reference of Message is: " + aRmessage.get() + "\nAtomic Reference of Person is "
 				+ aRperson.get().toString());
 	}
@@ -46,6 +48,7 @@ public class AtomicReferenceExample {
 
 			System.out.println(
 					"\n" + Thread.currentThread().getName() + " Values " + message + " - " + person.toString());
+
 			System.out.println("\n" + Thread.currentThread().getName() + " Atomic References " + message + " - "
 					+ person.toString());
 		}
@@ -63,6 +66,7 @@ public class AtomicReferenceExample {
 
 			System.out.println(
 					"\n" + Thread.currentThread().getName() + " Values: " + message + " - " + person.toString());
+
 			System.out.println("\n" + Thread.currentThread().getName() + " Atomic References: " + aRmessage.get()
 					+ " - " + aRperson.get().toString());
 		}
@@ -96,7 +100,7 @@ public class AtomicReferenceExample {
 
 		@Override
 		public String toString() {
-			return "[name " + this.name + ", age " + this.age + "]";
+			return "[name:" + this.name + ", age:" + this.age + "]";
 		}
 	}
 
