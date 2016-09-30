@@ -35,10 +35,10 @@ class AxeGangPeople implements Observer {
 
 	@Override
 	public void update(Observable observable, Object data) {
-		AxeGangBoss writer;
+		AxeGangBoss boss;
 		if (observable instanceof AxeGangBoss) {
-			writer = (AxeGangBoss) observable;
-			System.out.println(getName() + " get the message from " + writer.getName() + " : " + data.toString());
+			boss = (AxeGangBoss) observable;
+			System.out.println(getName() + " get the message from " + boss.getName() + " : " + data.toString());
 		}
 	}
 
