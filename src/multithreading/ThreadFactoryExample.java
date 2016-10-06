@@ -20,7 +20,7 @@ class Factory implements ThreadFactory {
 
 		return t;
 	}
-
+ 
 }
 
 public class ThreadFactoryExample {
