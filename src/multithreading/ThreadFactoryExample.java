@@ -5,10 +5,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ThreadFactoryExample implements ThreadFactory {
+class Factory implements ThreadFactory {
 
 	private final AtomicInteger count = new AtomicInteger(0);
 
+	@Override
 	public Thread newThread(Runnable r) {
 
 		int c = count.incrementAndGet();
@@ -20,9 +21,13 @@ public class ThreadFactoryExample implements ThreadFactory {
 		return t;
 	}
 
+}
+
+public class ThreadFactoryExample {
+
 	public static void main(String[] args) throws Exception {
 
-		ExecutorService service = Executors.newFixedThreadPool(5, new ThreadFactoryExample());
+		ExecutorService service = Executors.newFixedThreadPool(5, new Factory());
 
 		for (int i = 0; i < 5; i++) {
 			service.submit(new Runnable() {
