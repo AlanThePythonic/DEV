@@ -11,7 +11,7 @@ public class AtomicIntegerUpdaterImpl {
 		protected volatile int value3 = 3;
 		private volatile int value4 = 4;
 	}
-
+  
 	AtomicIntegerFieldUpdater<DemoData> getUpdater(String fieldName) {
 		return AtomicIntegerFieldUpdater.newUpdater(DemoData.class, fieldName);
 	}
