@@ -19,7 +19,7 @@ public class RandomAccessFileDemo {
 		try (RandomAccessFile raf = new RandomAccessFile(fileName, "rw")) {
 
 			if (skip < 0 || skip > raf.length()) {
-				System.out.println("跳过字节数无效");
+				System.out.println("Skip failed.");
 
 			} else {
 				byte[] b = str.getBytes();
