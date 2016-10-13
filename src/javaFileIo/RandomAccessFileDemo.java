@@ -41,6 +41,7 @@ public class RandomAccessFileDemo {
 
 	// Use the thread to write the data to the file on the specified place
 	static class FileWriteThread extends Thread {
+		
 		private int skip;
 		private byte[] content;
 
