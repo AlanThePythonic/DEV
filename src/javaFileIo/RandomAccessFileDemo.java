@@ -6,6 +6,39 @@ import java.io.RandomAccessFile;
 
 public class RandomAccessFileDemo {
 
+	/**
+	 * @param skip
+	 *            Skipped how many bytes
+	 * @param str
+	 *            Insert String
+	 * @param fileName
+	 *            File name with directory
+	 */
+	public static void skipAndInsert(long skip, String str, String fileName) {
+
+		try (RandomAccessFile raf = new RandomAccessFile(fileName, "rw")) {
+
+			if (skip < 0 || skip > raf.length()) {
+				System.out.println("跳过字节数无效");
+
+			} else {
+				byte[] b = str.getBytes();
+				raf.setLength(raf.length() + b.length);
+				for (long i = raf.length() - 1; i > b.length + skip - 1; i--) {
+					raf.seek(i - b.length);
+					byte temp = raf.readByte();
+					raf.seek(i);
+					raf.writeByte(temp);
+				}
+				raf.seek(skip);
+				raf.write(b);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void downloadFileByMultiThread() throws IOException {
 
 		// Setting the size of hard drive space ，The specified size file will be
@@ -29,7 +62,7 @@ public class RandomAccessFileDemo {
 		// Write the data to the file from 2048 bytes of the file
 		new FileWriteThread(1024 * 2, s2.getBytes()).start();
 
-		// Write the data to the file from 3072 bytes of the file 	
+		// Write the data to the file from 3072 bytes of the file
 		new FileWriteThread(1024 * 3, s3.getBytes()).start();
 
 		// Write the data to the file from 4096 bytes of the file
@@ -41,7 +74,7 @@ public class RandomAccessFileDemo {
 
 	// Use the thread to write the data to the file on the specified place
 	static class FileWriteThread extends Thread {
-		
+
 		private int skip;
 		private byte[] content;
 
