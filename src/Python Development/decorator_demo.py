@@ -12,7 +12,8 @@ def line_func():
 # Test closure function
 b = 20
 line_hl = line_func()
-print(line_hl(3))
+print("Test closure function : {0}".format(line_hl(3)))
+print()
 
 # Define a decorator
 
@@ -48,19 +49,22 @@ def squareDiff(a, b):
     return a ** 2 - b ** 2
 
 
-print(squareSum(4, 2))
-print(squareDiff(4, 2))
+print("Decorator without parameter - squareSum : {0}".format(squareSum(4, 2)))
+print("Decorator without parameter - squareDiff : {0}".format(squareDiff(4, 2)))
 
+print()
 
 @preString('sum +')  # Pay attention
-def squareSum(a, b):
+def squareSum2(a, b):
     return a ** 2 + b ** 2
 
 
 @preString('diff -')
-def squareDiff(a, b):
+def squareDiff2(a, b):
     return a ** 2 - b ** 2
 
 
-print(squareSum(4, 2))
-print(squareDiff(4, 2))
+print("Decorator parameter - squareSum : {0}".format(squareSum2(4, 2)))
+print("Decorator parameter - squareDiff : {0}".format(squareDiff2(4, 2)))
+
+
