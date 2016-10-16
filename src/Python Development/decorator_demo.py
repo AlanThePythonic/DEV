@@ -40,12 +40,12 @@ def preString(pre=''):  # New decorator with a parameter 'pre'
 
 @decorator  # Equals to decorator(squareSum)
 def squareSum(a, b):
-    return a**2 + b**2
+    return a ** 2 + b ** 2
 
 
 @decorator
 def squareDiff(a, b):
-    return a**2 - b**2
+    return a ** 2 - b ** 2
 
 
 print(squareSum(4, 2))
@@ -54,12 +54,12 @@ print(squareDiff(4, 2))
 
 @preString('sum +')  # Pay attention
 def squareSum(a, b):
-    return a**2 + b**2
+    return a ** 2 + b ** 2
 
 
 @preString('diff -')
 def squareDiff(a, b):
-    return a**2 - b**2
+    return a ** 2 - b ** 2
 
 
 print(squareSum(4, 2))
