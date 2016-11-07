@@ -48,11 +48,20 @@ class Task extends RecursiveTask<Integer> {
 			Task task2 = new Task(numberList, pivot + 1, end);
 			
 			// 2. Calculate individually
+			/*
+			 * 
+				1, 2, 3, 4 ,5, 6, 7, 8, 9, 10
+				[1 + 2 + 3] + [4 + 5], [6 + 7 + 8] + [9 + 10]
+				[6 + 9] , [21 + 19]
+				[55]
+			*
+			*
+			*/			
 			task1.fork();
 			task2.fork();
 			
 			// 3. Join the result from all tasks
-			System.out.println(task1.join() + " : " + task2.join());
+			System.out.println("Task 1 : " + task1.join() + ", Task 2 : " + task2.join());
 			return task1.join() + task2.join();
 		}
 
