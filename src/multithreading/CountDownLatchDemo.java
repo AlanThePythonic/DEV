@@ -55,6 +55,7 @@ class Boss implements Runnable {
 public class CountDownLatchDemo {
 
 	public static void main(String[] args) {
+
 		ExecutorService executor = Executors.newCachedThreadPool();
 
 		CountDownLatch latch = new CountDownLatch(3);
@@ -72,5 +73,4 @@ public class CountDownLatchDemo {
 
 		executor.shutdown();
 	}
-
 }

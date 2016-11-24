@@ -25,7 +25,8 @@ def group_by_client():
 
     # Group the capture result list of database
     result_list = sorted(list(map(lambda x: (x.get("CLIENT_ID"), x.get(
-        "STOCK_ID"), x.get("BUY_QUANTITY")), get_result_from_db())), key=lambda x: x[0])
+        "STOCK_ID"), x.get("BUY_QUANTITY")), get_result_from_db())
+    ), key=lambda x: x[0])
 
     group_result_list = [(key, [i[1] for i in sorted(values)])
                          for key, values in groupby(result_list, lambda i: i[0])]
