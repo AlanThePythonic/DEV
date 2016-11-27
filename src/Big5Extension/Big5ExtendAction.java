@@ -36,7 +36,7 @@ class Big5_Extend extends Charset {
 	}
 
 	public boolean contains(Charset cs) {
-		return this.getClass().isInstance(cs) || baseCharset.getClass().isInstance(cs);
+		return getClass().isInstance(cs) || baseCharset.getClass().isInstance(cs);
 	}
 
 	public CharsetDecoder newDecoder() {
@@ -66,7 +66,7 @@ class Big5_Extend extends Charset {
 			}
 
 			int pos = in.position();
-			char big5Char = (char) (in.get(pos) << 8 | in.get(pos + 1));
+			char big5Char = (char) ((in.get(pos) << 8) | in.get(pos + 1));
 			char outChar;
 
 			switch (big5Char) {
@@ -181,16 +181,18 @@ public class Big5ExtendAction {
 		System.out.println("Encoded: ");
 		for (int i = 0; bb.hasRemaining(); i++) {
 			int b = bb.get();
-			int ival = ((int) b) & 0xff;
+			int ival = (int) b & 0xff;
 			char c = (char) ival;
 			// Keep tabular alignment pretty
-			if (i < 10)
+			if (i < 10) {
 				System.out.print(" ");
+			}
 			// Print index number
 			System.out.print("  " + i + ": ");
 			// Better formatted output is coming someday...
-			if (ival < 16)
+			if (ival < 16) {
 				System.out.print("0");
+			}
 			// Print the hex value of the byte
 			System.out.print(Integer.toHexString(ival));
 			// If the byte seems to be the value of a
@@ -210,7 +212,7 @@ public class Big5ExtendAction {
 		String source = "堃菓蕋侊";
 
 		doEncode(new Big5_Extend(), source);
- 
+
 		/*
 		 * byte[] bytes = source.getBytes(charset); for (byte b : bytes) {
 		 * System.out.printf("%x ", b); } System.out.println("\n");
