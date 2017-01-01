@@ -176,7 +176,7 @@ class CharsetProvider extends java.nio.charset.spi.CharsetProvider {
 public class Big5ExtendAction {
 	private static void doEncode(Charset cs, String input) {
 		ByteBuffer bb = cs.encode(input);
-		System.out.println("Charset: " + cs.name());
+		System.out.println("Charset: fvc " + cs.name());
 		System.out.println("  Input: " + input);
 		System.out.println("Encoded: ");
 		for (int i = 0; bb.hasRemaining(); i++) {
